@@ -1,23 +1,40 @@
 <img src="">
+<div class="container">
+  <div class="row">
+    <div class="col s12 center">
+      <h1>Eat-Da-Burger!</h1>
+    </div>
+  </div>
+</div>
 
-<h1>Eat-Da-Burger!</h1>
+<div class="container">
+  <div class="row">
+    <div class="col s6 center">
+      <h4>Burgers to be eaten</h4>
+      <ul>
+        {{#each burgers}} {{#unless devoured}} {{> burgers/burgers-block devoured=true}} {{/unless}} {{/each}}
+      </ul>
+    </div>
+    <div class="col s6 center">
+      <h4>Burgers devoured</h4>
+      <ul>
+        {{#each burgers}} {{#if devoured}} {{> burgers/burgers-block devoured=false}} {{/if}} {{/each}}
+      </ul>
+    </div>
+  </div>
 
-<h2>Burgers to be eaten</h2>
+  <div class="row">
+    <div class="col s6 offset-s3">
+      <h4>Add a Burger</h4>
+      <form class="create-form">
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burgers-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+        <div class="form-group">
+          <label for="ca">Burger Name:</label>
+          <input type="text" id="ca" name="name">
+        </div>
 
-<h2>Burgers devoured</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burgers-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+        <button type="submit" class="btn waves-effect waves-light">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
